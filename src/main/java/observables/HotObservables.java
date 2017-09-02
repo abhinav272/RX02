@@ -11,6 +11,6 @@ import java.util.concurrent.TimeUnit;
 public class HotObservables {
 
     public ConnectableObservable<Long> getHotObservableFromCold() {
-        return Observable.interval(200, TimeUnit.MILLISECONDS).publish();
+        return Observable.interval(200, TimeUnit.MILLISECONDS).take(5).publish();
     }
 }
