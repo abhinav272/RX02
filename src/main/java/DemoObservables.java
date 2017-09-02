@@ -14,17 +14,28 @@ public class DemoObservables {
         ColdObservables coldObservables = new ColdObservables();
         HotObservables hotObservables = new HotObservables();
 
+        System.out.println("\n\n>>>Cold Observable Example 1:\n\n");
         /**
          * In case of cold observable, all subscriber will get all the emissions guaranteed
          * */
 
         Observable<Integer> coldObservableFromCreate1 = coldObservables.getColdObservableFromCreate(2);
-        Observable<Integer> coldObservableFromCreate2 = coldObservables.getColdObservableFromCreate(2);
 
         coldObservableFromCreate1.subscribe(integer -> System.out.println("DemoObservables.accept 1 " + integer));
-        coldObservableFromCreate2.subscribe(integer -> System.out.println("DemoObservables.accept 2 " + integer));
+        coldObservableFromCreate1.subscribe(integer -> System.out.println("DemoObservables.accept 2 " + integer));
 
-        System.out.println("\n\n\n\n");
+        System.out.println("\n\n>>>Cold Observable Example 2:\n\n");
+
+        /**
+         * Cold Observable example 2, created from Just operator
+         * */
+
+        Observable<Integer> coldObservableFromJust = coldObservables.getColdObservableFromJust();
+        coldObservableFromJust.subscribe(integer -> System.out.println("coldObservable1 " + integer));
+        coldObservableFromJust.subscribe(integer -> System.out.println("coldObservable2 " + integer));
+
+
+        System.out.println("\n\n>>>Hot Observable Example 1:\n\n");
 
         /**
          * In case of hot observable only the observable subscribed before connect will get all emissions,
@@ -37,7 +48,7 @@ public class DemoObservables {
         hotObservableFromCold1.subscribe(integer -> System.out.println("DemoObservables.accept 2 " + integer));
 
 
-        System.out.println("\n\n\n\n");
+        System.out.println("\n\n>>>Hot Observable Example 2:\n\n");
 
         /**
          * More precise example of Hot Observable, emissions starts and as Subscribers subscribes they

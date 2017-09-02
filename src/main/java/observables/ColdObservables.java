@@ -18,6 +18,10 @@ public class ColdObservables {
         });
     }
 
+    public Observable<Integer> getColdObservableFromJust() {
+        return Observable.just(1,2,3,4,5);
+    }
+
     public ConnectableObservable<Integer> getHotObservableFromCold() {
         return getColdObservableFromCreate(2).publish();
     }
