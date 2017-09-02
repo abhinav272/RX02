@@ -1,6 +1,7 @@
 package observables;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.Predicate;
 import io.reactivex.observables.ConnectableObservable;
 
 import java.util.concurrent.TimeUnit;
@@ -10,7 +11,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class HotObservables {
 
+
+    /**
+     * also try other terminators for interval method like
+     * takeUntil(), take() and takeLast()
+     */
     public ConnectableObservable<Long> getHotObservableFromCold() {
-        return Observable.interval(200, TimeUnit.MILLISECONDS).take(5).publish();
+        return Observable.interval(200, TimeUnit.MILLISECONDS).takeWhile(aLong -> {
+            System.out.println(aLong);
+            return aLong < 5;
+        }).publish();
     }
 }

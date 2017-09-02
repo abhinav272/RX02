@@ -68,7 +68,7 @@ public class DemoObservables {
         hotObservableFromCold2.subscribe(aLong -> System.out.println("second : " + aLong));
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
