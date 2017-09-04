@@ -1,7 +1,6 @@
 package observables;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Predicate;
 import io.reactivex.observables.ConnectableObservable;
 
 import java.util.concurrent.TimeUnit;

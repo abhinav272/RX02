@@ -1,3 +1,5 @@
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import observables.ColdObservables;
 
 import io.reactivex.Observable;

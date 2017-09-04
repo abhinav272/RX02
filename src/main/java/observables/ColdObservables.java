@@ -15,6 +15,7 @@ public class ColdObservables {
                 subscriber.onNext(i);
                 Thread.sleep(100);
             }
+            subscriber.onComplete();
         });
     }
 
